@@ -21,11 +21,11 @@ public class LettersClassification {
 
         Trait higherHalfToAllTrait = new HigherHalfToAll();
         Trait middleThirdToAllTrait = new MiddleThirdToAll();
-        Trait leftQuarterToAll = new LeftQuarterToAll();
+        Trait leftQuarterToAllTrait = new LeftQuarterToAll();
 
         Predicate<Letter> isLetterT = (l) -> higherHalfToAllTrait.calculate(l) > 0.6;
         Predicate<Letter> isLetterAInsteadOfC = (l) -> middleThirdToAllTrait.calculate(l) > 0.15;
-        Predicate<Letter> isLetterK = (l) -> leftQuarterToAll.calculate(l) > 0.5;
+        Predicate<Letter> isLetterK = (l) -> leftQuarterToAllTrait.calculate(l) > 0.5;
 
         DecisionTree<Letter, String> letterT = new QuestionNode<>(isLetterT);
         DecisionTree<Letter, String> letterK = new QuestionNode<>(isLetterK);
