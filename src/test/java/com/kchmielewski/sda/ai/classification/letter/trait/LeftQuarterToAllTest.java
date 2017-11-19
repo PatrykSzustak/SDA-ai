@@ -15,7 +15,7 @@ public class LeftQuarterToAllTest {
     private final Trait trait = new LeftQuarterToAll();
 
     @Test
-    public void forSixteenPixelImageWithLeftHalfBlack1IsReturned() throws Exception {
+    public void forSixteenPixelImageWithQuarterBlack1IsReturned() throws Exception {
         boolean[][] image = {
                 {true, false, false, false},
                 {true, false, false, false},
