@@ -1,23 +1,18 @@
 package com.kchmielewski.sda.ai.classification.decisiontree;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class AnswerNodeTest {
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     private static final String ANSWER = "Some meaningful answer";
 
     private AnswerNode<Integer, String> answerNode = new AnswerNode<>(ANSWER);
 
     @Test
     public void forEmptyAnswerThrowsException() throws Exception {
-        expectedException.expect(IllegalArgumentException.class);
-        new AnswerNode<>(null);
+        assertThatThrownBy(() -> new AnswerNode<>(null)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
@@ -32,14 +27,12 @@ public class AnswerNodeTest {
 
     @Test
     public void passingDecisionTreeToYesThrowsException() throws Exception {
-        expectedException.expect(UnsupportedOperationException.class);
-        answerNode.yes(answerNode);
+        assertThatThrownBy(() -> answerNode.yes(answerNode)).isInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test
     public void passingDecisionTreeToNoThrowsException() throws Exception {
-        expectedException.expect(UnsupportedOperationException.class);
-        answerNode.no(answerNode);
+        assertThatThrownBy(() -> answerNode.no(answerNode)).isInstanceOf(UnsupportedOperationException.class);
     }
 
     @Test

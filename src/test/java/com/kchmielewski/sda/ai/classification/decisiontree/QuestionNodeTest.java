@@ -1,22 +1,17 @@
 package com.kchmielewski.sda.ai.classification.decisiontree;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 public class QuestionNodeTest {
-    @Rule
-    public ExpectedException expectedException = ExpectedException.none();
-
     private final QuestionNode<Integer, String> alwaysTrueNode = new QuestionNode<>((i) -> true);
     private final QuestionNode<Integer, String> alwaysFalseNode = new QuestionNode<>((i) -> false);
 
     @Test
     public void forEmptyQuestionThrowsException() throws Exception {
-        expectedException.expect(IllegalArgumentException.class);
-        new QuestionNode<>(null);
+        assertThatThrownBy(() -> new QuestionNode<>(null)).isInstanceOf(IllegalArgumentException.class);
     }
 
     @Test
