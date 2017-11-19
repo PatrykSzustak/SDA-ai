@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 public class ClassifyingNumbers {
     public static void main(String[] args) {
         Predicate<Integer> even = (i) -> i % 2 == 0;
-        Predicate<Integer> positive = (i) -> i  > 0;
+        Predicate<Integer> positive = (i) -> i > 0;
 
         QuestionNode<Integer, String> evenInteger = new QuestionNode<>(even);
         QuestionNode<Integer, String> positiveInteger = new QuestionNode<>(positive);
